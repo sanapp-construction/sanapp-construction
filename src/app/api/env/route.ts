@@ -1,5 +1,3 @@
-"use server";
-
 export async function GET() {
   return Response.json({
     envLoaded: !!process.env.DATABASE_URL,
