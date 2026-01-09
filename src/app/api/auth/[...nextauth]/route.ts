@@ -5,9 +5,10 @@ import { db } from '@/lib/db';
 import { users } from '@/lib/schema';
 import { eq } from 'drizzle-orm';
 import bcrypt from 'bcrypt';
+import { getDb } from '@/lib/db'; // измени импорт
 
 const handler = NextAuth({
-  adapter: DrizzleAdapter(db),
+  adapter: DrizzleAdapter(await getDb()), // await getDb(),
   providers: [
     CredentialsProvider({
       name: 'Credentials',
